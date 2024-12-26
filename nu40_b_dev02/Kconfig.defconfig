@@ -1,0 +1,35 @@
+if BOARD_NU40_B_DEV02
+
+config BT_CTLR
+	default BT
+
+config BOARD_ENABLE_DCDC
+	bool "DCDC mode"
+	select SOC_DCDC_NRF52X
+	default n
+
+config BOARD_ENABLE_DCDC_HV
+	bool "High Voltage DCDC converter"
+	select SOC_DCDC_NRF52X_HV
+	default n
+	depends on SOC_NRF52840_QIAA
+
+if USB_CDC_ACM
+
+config CONSOLE
+	bool "Console"
+	default y
+
+config UART_CONSOLE
+	default CONSOLE
+
+if LOG
+
+# Logger cannot use itself to log
+choice USB_CDC_ACM_LOG_LEVEL_CHOICE
+	default USB_CDC_ACM_LOG_LEVEL_OFF
+endchoice
+
+endif # LOG
+endif # USB_CDC_ACM
+endif # BOARD_NU40_B_DEV02

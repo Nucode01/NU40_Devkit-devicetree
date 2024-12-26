@@ -1,0 +1,5 @@
+board:
+  name: nu40_b_dev02
+  vendor: nucode
+  socs:
+    - name: nrf52840

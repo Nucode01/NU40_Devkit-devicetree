@@ -1,0 +1,11 @@
+identifier: nu40_b_dev02/nrf52840
+name: NU-40 Dev Kit
+vendor: nucode
+type: mcu
+arch: arm
+ram: 256
+flash: 1024
+toolchain:
+  - zephyr
+supported:
+  - gpio
